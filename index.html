@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Alexis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">NGA FEGUE Alexis Freddy</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#a-propos">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <div class="hero-content">
+                <h1>Bonjour, je suis <span class="highlight">NGA FEGUE</span></h1>
+                <h2>Dévellopeur web full-stack</h2>
+                <p>Donner vie à des interfaces intuitives qui captivent et simplifient l'expérience utilisateur,
+                    au travers des technologies robustes et innovantes.
+                </p>
+                <a href="#projets" class="btn">Voir mes réalisations</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/photo2.jpg" alt="Votre photo ou illustration">
+            </div>
+        </section>
+
+        <section id="projets" class="projects">
+            <h2 class="section-title">Mes <span class="highlight">Réalisations</span></h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="autre">Autre</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Les projets seront ajoutés dynamiquement via JS -->
+            </div>
+        </section>
+
+        <section id="competences" class="skills">
+            <h2 class="section-title">Mes <span class="highlight">Compétences</span></h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Développement</h3>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>HTML/CSS/JAVASCRIPT</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Next JS</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>LARAVEL</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres compétences de développement -->
+                </div>
+                <div class="skill-category">
+                    <h3>Design</h3>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>UI/UX</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres compétences de design -->
+                </div>
+            </div>
+        </section>
+
+        <section id="a-propos" class="about">
+            <div class="about-image">
+                <img src="assets/photo.jpg" alt="À propos de moi">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">À <span class="highlight">propos</span> de moi</h2>
+                <p>
+                    Développeur Full-Stack junior avec une appétence pour le front-end, je suis familiarisé avec le JavaScript, Next et Laravel. 
+                    À travers mes projets (comme [une plateforme de e-learning]), j’ai appris à structurer mon code et à m’adapter aux besoins utilisateurs. 
+                    Motivé par l’innovation, je cherche à rejoindre une équipe où je pourrais apprendre et contribuer activement.
+                </p>
+                <!-- <a href="#" class="btn">Télécharger mon CV</a> -->
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 class="section-title">Me <span class="highlight">contacter</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Disponible pour de nouvelles opportunités</h3>
+                    <p><i class="fas fa-envelope"></i>alexisfreddynf@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +237653158667/+237691036387</p>
+                    <div class="social-links">
+                        <a href="https://github.com/freddy701"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/alexis-freddy"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <input type="text" name="from_name" placeholder="Votre nom" required>
+                    <input type="email" name="from_email" placeholder="Votre email" required>
+                    <input type="text" name="subject" placeholder="Sujet">
+                    <textarea name="message" placeholder="Votre message" required></textarea>
+                    <input type="hidden" name="to_email" value="freddyngaf@gmail.com">
+                    <button type="submit" class="btn">Envoyer</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> NGA FEGUE. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-container">
+        <div class="toast">
+            <h3 class="toast-title">Message envoyé !</h3>
+            <p class="toast-message">Merci pour votre message. Je vous répondrai dans les plus brefs délais.</p>
+            <button class="toast-close">Fermer</button>
+        </div>
+    </div>
+
+    <!-- EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
