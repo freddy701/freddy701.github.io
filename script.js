@@ -172,10 +172,10 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // Récupérer les valeurs du formulaire
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const subject = this.querySelector('input[placeholder="Sujet"]').value;
-            const message = this.querySelector('textarea').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
             
             // Afficher un indicateur de chargement
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -183,34 +183,42 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = 'Envoi en cours...';
             submitBtn.disabled = true;
             
-            // Utiliser sendForm avec le formulaire qui a maintenant des attributs name
-            // Le premier paramètre est l'ID de votre service
-            // Le deuxième paramètre peut être n'importe quel ID de modèle valide de votre compte
-            // Le troisième paramètre est le formulaire lui-même
-            emailjs.sendForm('service_j4s68x5', 'template_default', this)
-                .then(() => {
+            try {
+                // Préparer le corps du message pour mailto
+                const body = `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+                
+                // Créer l'URL mailto
+                const mailtoUrl = `mailto:freddyngaf@gmail.com?subject=${encodeURIComponent(subject || 'Message depuis le portfolio')}&body=${encodeURIComponent(body)}`;
+                
+                // Ouvrir le client email de l'utilisateur
+                window.location.href = mailtoUrl;
+                
+                // Afficher le toast de succès
+                setTimeout(() => {
                     // Réinitialiser le formulaire
                     this.reset();
                     
-                    // Afficher le toast de succès
+                    // Afficher le toast
+                    document.querySelector('.toast-title').textContent = 'Email préparé';
+                    document.querySelector('.toast-message').textContent = 'Votre client email a été ouvert avec votre message. Envoyez-le pour finaliser.';
                     showToast();
                     
                     // Réinitialiser le bouton
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
-                })
-                .catch((error) => {
-                    console.error('Erreur d\'envoi:', error);
-                    
-                    // Modifier le message du toast pour indiquer l'erreur
-                    document.querySelector('.toast-title').textContent = 'Erreur';
-                    document.querySelector('.toast-message').textContent = 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer plus tard.';
-                    showToast();
-                    
-                    // Réinitialiser le bouton
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                });
+                }, 1000);
+            } catch (error) {
+                console.error('Erreur:', error);
+                
+                // Modifier le message du toast pour indiquer l'erreur
+                document.querySelector('.toast-title').textContent = 'Erreur';
+                document.querySelector('.toast-message').textContent = 'Une erreur est survenue. Veuillez réessayer plus tard ou contacter directement par email.';
+                showToast();
+                
+                // Réinitialiser le bouton
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
 });
